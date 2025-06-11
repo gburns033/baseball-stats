@@ -1,111 +1,119 @@
 package baseballStats;
 
+import java.util.HashMap;
+
 public class Hitter {
-	private int plateAppearances;
-	private int atBats;
-	private int hits;
-	private int singles;
-	private int doubles;
-	private int triples;
-	private int homeRuns;
-	private int walks;
+	
+	HashMap<String, Integer> hitterStats = new HashMap<String, Integer>();
 
 	public Hitter() {
-		this.plateAppearances = 0;
-		this.atBats = 0;
-		this.hits = 0;
-		this.singles = 0;
-		this.doubles = 0;
-		this.triples = 0;
-		this.homeRuns = 0;
-		this.walks = 0;
+		hitterStats.put("Plate Appearances", 0);
+		hitterStats.put("At Bats", 0);
+		hitterStats.put("Hits", 0);
+		hitterStats.put("Singles", 0);
+		hitterStats.put("Doubles", 0);
+		hitterStats.put("Triples", 0);
+		hitterStats.put("Home Runs", 0);
+		hitterStats.put("Walks", 0);
 	}
 
 	public Hitter(int plateAppearances, int atBats, int hits, int singles, int doubles, int triples, int homeRuns, int walks) {
-		this.plateAppearances = plateAppearances;
-		this.atBats = atBats;
-		this.hits = hits;
-		this.singles = singles;
-		this.doubles = doubles;
-		this.triples = triples;
-		this.homeRuns = homeRuns;
-		this.walks = walks;
-	}
-
-
-	public void setAtBats(int atBats) {
-		this.atBats = atBats;
+		hitterStats.put("Plate Appearances", plateAppearances);
+		hitterStats.put("At Bats", atBats);
+		hitterStats.put("Hits", hits);
+		hitterStats.put("Singles", singles);
+		hitterStats.put("Doubles", doubles);
+		hitterStats.put("Triples", triples);
+		hitterStats.put("Home Runs", homeRuns);
+		hitterStats.put("Walks", walks);
 	}
 
 	public void setPlateAppearances(int plateAppearances) {
-		this.plateAppearances = plateAppearances;
+		hitterStats.put("Plate Appearances", plateAppearances);
+	}
+
+	public void setAtBats(int atBats) {
+		hitterStats.put("At Bats", atBats);
 	}
 
 	public void setHits(int hits) {
-		this.hits = hits;
+		hitterStats.put("Hits", hits);
 	}
 
 	public void setSingles(int singles) {
-		this.singles = singles;
+		hitterStats.put("Singles", singles);
 	}
 
 	public void setDoubles(int doubles) {
-		this.doubles = doubles;
+		hitterStats.put("Doubles", doubles);
 	}
 
 	public void setTriples(int triples) {
-		this.triples = triples;
+		hitterStats.put("Triples", triples);
 	}
 
 	public void setHomeRuns(int homeRuns) {
-		this.homeRuns = homeRuns;
+		hitterStats.put("Home Runs", homeRuns);
 	}
 
 	public void setWalks(int walks) {
-		this.walks = walks;
+		hitterStats.put("Walks", walks);
+	}
+	
+	public int getPlateAppearances() {
+		return hitterStats.get("Plate Appearances");
 	}
 
 	public int getAtBats() {
-		return this.atBats;
-	}
-
-	public int getPlateAppearances() {
-		return this.plateAppearances;
+		return hitterStats.get("At Bats");
 	}
 
 	public int hits() {
-		return this.hits;
+		return hitterStats.get("Hits");
 	}
 
 	public int getSingles() {
-		return this.singles;
+		return hitterStats.get("Singles");
 	}
 
 	public int getDoubles() {
-		return this.doubles;
+		return hitterStats.get("Doubles");
 	}
 
 	public int getTriples() {
-		return this.triples;
+		return hitterStats.get("Triples");
 	}
 
 	public int getHomeRuns() {
-		return this.homeRuns;
+		return hitterStats.get("Home Runs");
 	}
 
 	public int getWalks() {
-		return this.walks;
+		return hitterStats.get("Walks");
 	}
 
 	public float calculateBattingAverage() {
+		int hits = hitterStats.get("Hits");
+		int atBats = hitterStats.get("At Bats");
+		
 		return (float)hits / atBats;
 	}
 	
 	public float calculateOnBasePercent() {
+		int hits = hitterStats.get("Hits");
+		int walks = hitterStats.get("Walks");
+		int plateAppearances = hitterStats.get("Plate Appearances");
+		
 		return (float)(hits + walks) / plateAppearances;
 	}
 	
 	public float calculateSluggingPercent() {
+		int singles = hitterStats.get("Singles");
+		int doubles = hitterStats.get("Doubles");
+		int triples = hitterStats.get("Triples");
+		int homeRuns = hitterStats.get("Home Runs");
+		int atBats = hitterStats.get("At Bats");
+		
 		return (float)(singles + (doubles * 2) + (triples * 3) + (homeRuns * 4)) / atBats;
 	}
 	

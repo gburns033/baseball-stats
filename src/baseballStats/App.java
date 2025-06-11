@@ -43,5 +43,7 @@ public class App {
 		System.out.println(df.format(hitter.calculateOnBasePercent()));
 		System.out.println(df.format(hitter.calculateSluggingPercent()));
 		System.out.println(df.format(hitter.calculateOPS()));
+		
+		scanner.close();
 	}
 }
