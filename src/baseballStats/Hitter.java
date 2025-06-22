@@ -16,9 +16,11 @@ public class Hitter {
 		hitterStats.put("Triples", 0);
 		hitterStats.put("Home Runs", 0);
 		hitterStats.put("Walks", 0);
+		hitterStats.put("Stolen Bases", 0);
+		hitterStats.put("Caught Stealing", 0);
 	}
 
-	public Hitter(int plateAppearances, int atBats, int runs, int hits, int singles, int doubles, int triples, int homeRuns, int walks) {
+	public Hitter(int plateAppearances, int atBats, int runs, int hits, int singles, int doubles, int triples, int homeRuns, int walks, int sb, int cs) {
 		hitterStats.put("Plate Appearances", plateAppearances);
 		hitterStats.put("At Bats", atBats);
 		hitterStats.put("Runs", runs);
@@ -28,6 +30,8 @@ public class Hitter {
 		hitterStats.put("Triples", triples);
 		hitterStats.put("Home Runs", homeRuns);
 		hitterStats.put("Walks", walks);
+		hitterStats.put("Stolen Bases", sb);
+		hitterStats.put("Caught Stealing", cs);
 	}
 
 	public void setPlateAppearances(int plateAppearances) {
@@ -66,6 +70,14 @@ public class Hitter {
 		hitterStats.put("Walks", walks);
 	}
 	
+	public void setStolenBases(int sb) {
+		hitterStats.put("Stolen Bases", sb);
+	}
+	
+	public void setCaughtStealing(int cs) {
+		hitterStats.put("Caught Stealing", cs);
+	}
+	
 	public int getPlateAppearances() {
 		return hitterStats.get("Plate Appearances");
 	}
@@ -101,6 +113,14 @@ public class Hitter {
 	public int getWalks() {
 		return hitterStats.get("Walks");
 	}
+	
+	public int getStolenBases() {
+		return hitterStats.get("Stolen Bases");
+	}
+	
+	public int getCaughtStealing() {
+		return hitterStats.get("Caught Stealing");
+	}
 
 	public float calculateBattingAverage() {
 		int hits = hitterStats.get("Hits");
@@ -129,5 +149,11 @@ public class Hitter {
 	
 	public float calculateOPS() {
 		return calculateSluggingPercent() + calculateOnBasePercent();
+	}
+	
+	public float calculateStolenBasePercent() {
+		int sb = hitterStats.get("Stolen Bases");
+		int cs = hitterStats.get("Caught Stealing");
+		return (float)sb / (sb + cs);
 	}
 }
