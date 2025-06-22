@@ -1,5 +1,6 @@
 package baseballStats;
 
+import java.text.DecimalFormat;
 import java.util.HashMap;
 
 public class Hitter {
@@ -15,12 +16,14 @@ public class Hitter {
 		hitterStats.put("Doubles", 0);
 		hitterStats.put("Triples", 0);
 		hitterStats.put("Home Runs", 0);
+		hitterStats.put("RBI", 0);
 		hitterStats.put("Walks", 0);
 		hitterStats.put("Stolen Bases", 0);
 		hitterStats.put("Caught Stealing", 0);
 	}
 
-	public Hitter(int plateAppearances, int atBats, int runs, int hits, int singles, int doubles, int triples, int homeRuns, int walks, int sb, int cs) {
+	public Hitter(int plateAppearances, int atBats, int runs, int hits, int singles, int doubles, 
+				  int triples, int homeRuns, int rbi, int walks, int sb, int cs) {
 		hitterStats.put("Plate Appearances", plateAppearances);
 		hitterStats.put("At Bats", atBats);
 		hitterStats.put("Runs", runs);
@@ -29,6 +32,7 @@ public class Hitter {
 		hitterStats.put("Doubles", doubles);
 		hitterStats.put("Triples", triples);
 		hitterStats.put("Home Runs", homeRuns);
+		hitterStats.put("RBI", rbi);
 		hitterStats.put("Walks", walks);
 		hitterStats.put("Stolen Bases", sb);
 		hitterStats.put("Caught Stealing", cs);
@@ -64,6 +68,10 @@ public class Hitter {
 
 	public void setHomeRuns(int homeRuns) {
 		hitterStats.put("Home Runs", homeRuns);
+	}
+	
+	public void setRBI(int rbi) {
+		hitterStats.put("RBI", rbi);
 	}
 
 	public void setWalks(int walks) {
@@ -109,6 +117,10 @@ public class Hitter {
 	public int getHomeRuns() {
 		return hitterStats.get("Home Runs");
 	}
+	
+	public int getRBI() {
+		return hitterStats.get("RBI");
+	}
 
 	public int getWalks() {
 		return hitterStats.get("Walks");
@@ -149,6 +161,13 @@ public class Hitter {
 	
 	public float calculateOPS() {
 		return calculateSluggingPercent() + calculateOnBasePercent();
+	}
+	
+	public void printSlashLine() {
+		DecimalFormat df = new DecimalFormat("#.000");
+		
+		System.out.printf("Slash line: " + df.format(calculateBattingAverage()) + "/" + df.format(calculateOnBasePercent()) + "/" + df.format(calculateSluggingPercent()));
+		System.out.println();
 	}
 	
 	public float calculateStolenBasePercent() {

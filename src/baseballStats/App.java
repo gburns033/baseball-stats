@@ -15,6 +15,7 @@ public class App {
 		int doubles;
 		int triples;
 		int homeRuns;
+		int rbi;
 		int walks;
 		int sb;
 		int cs;
@@ -40,6 +41,9 @@ public class App {
 		System.out.println("Enter home runs: ");
 		homeRuns = scanner.nextInt();
 		
+		System.out.println("Enter RBIs: ");
+		rbi = scanner.nextInt();
+		
 		System.out.println("Enter walks: ");
 		walks = scanner.nextInt();
 		
@@ -49,12 +53,9 @@ public class App {
 		System.out.println("Enter caught stealing: ");
 		cs = scanner.nextInt();
 		
-		Hitter hitter = new Hitter(plateAppearances, atBats, runs, hits, hits - (doubles + triples), doubles, triples, homeRuns, walks, sb, cs);
+		Hitter hitter = new Hitter(plateAppearances, atBats, runs, hits, hits - (doubles + triples), doubles, triples, homeRuns, rbi, walks, sb, cs);
 		
-		System.out.println(df.format(hitter.calculateBattingAverage()));
-		System.out.println(df.format(hitter.calculateOnBasePercent()));
-		System.out.println(df.format(hitter.calculateSluggingPercent()));
-		System.out.println(df.format(hitter.calculateOPS()));
+		hitter.printSlashLine();
 		System.out.println(df.format(hitter.calculateStolenBasePercent()));
 		
 		scanner.close();
