@@ -9,6 +9,7 @@ public class Hitter {
 	public Hitter() {
 		hitterStats.put("Plate Appearances", 0);
 		hitterStats.put("At Bats", 0);
+		hitterStats.put("Runs", 0);
 		hitterStats.put("Hits", 0);
 		hitterStats.put("Singles", 0);
 		hitterStats.put("Doubles", 0);
@@ -17,9 +18,10 @@ public class Hitter {
 		hitterStats.put("Walks", 0);
 	}
 
-	public Hitter(int plateAppearances, int atBats, int hits, int singles, int doubles, int triples, int homeRuns, int walks) {
+	public Hitter(int plateAppearances, int atBats, int runs, int hits, int singles, int doubles, int triples, int homeRuns, int walks) {
 		hitterStats.put("Plate Appearances", plateAppearances);
 		hitterStats.put("At Bats", atBats);
+		hitterStats.put("Runs", runs);
 		hitterStats.put("Hits", hits);
 		hitterStats.put("Singles", singles);
 		hitterStats.put("Doubles", doubles);
@@ -34,6 +36,10 @@ public class Hitter {
 
 	public void setAtBats(int atBats) {
 		hitterStats.put("At Bats", atBats);
+	}
+	
+	public void setRuns(int runs) {
+		hitterStats.put("Runs", runs);
 	}
 
 	public void setHits(int hits) {
@@ -67,8 +73,12 @@ public class Hitter {
 	public int getAtBats() {
 		return hitterStats.get("At Bats");
 	}
+	
+	public int getRuns() {
+		return hitterStats.get("Runs");
+	}
 
-	public int hits() {
+	public int getHits() {
 		return hitterStats.get("Hits");
 	}
 

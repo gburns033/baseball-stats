@@ -10,6 +10,7 @@ public class App {
 		
 		int plateAppearances;
 		int atBats;
+		int runs;
 		int hits;
 		int doubles;
 		int triples;
@@ -21,6 +22,9 @@ public class App {
 		
 		System.out.println("Enter at-bats: ");
 		atBats = scanner.nextInt();
+		
+		System.out.println("Enter runs: ");
+		runs = scanner.nextInt();
 		
 		System.out.println("Enter hits: ");
 		hits = scanner.nextInt();
@@ -37,7 +41,7 @@ public class App {
 		System.out.println("Enter walks: ");
 		walks = scanner.nextInt();
 		
-		Hitter hitter = new Hitter(plateAppearances, atBats, hits, hits - (doubles + triples), doubles, triples, homeRuns, walks);
+		Hitter hitter = new Hitter(plateAppearances, atBats, runs, hits, hits - (doubles + triples), doubles, triples, homeRuns, walks);
 		
 		System.out.println(df.format(hitter.calculateBattingAverage()));
 		System.out.println(df.format(hitter.calculateOnBasePercent()));
