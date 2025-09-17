@@ -8,155 +8,155 @@ public class Hitter {
 	HashMap<String, Integer> hitterStats = new HashMap<String, Integer>();
 
 	public Hitter() {
-		hitterStats.put("Plate Appearances", 0);
-		hitterStats.put("At Bats", 0);
-		hitterStats.put("Runs", 0);
-		hitterStats.put("Hits", 0);
-		hitterStats.put("Singles", 0);
-		hitterStats.put("Doubles", 0);
-		hitterStats.put("Triples", 0);
-		hitterStats.put("Home Runs", 0);
-		hitterStats.put("RBI", 0);
-		hitterStats.put("Walks", 0);
-		hitterStats.put("Stolen Bases", 0);
-		hitterStats.put("Caught Stealing", 0);
+		hitterStats.put("plateAppearances", 0);
+		hitterStats.put("atBats", 0);
+		hitterStats.put("runs", 0);
+		hitterStats.put("hits", 0);
+		hitterStats.put("singles", 0);
+		hitterStats.put("doubles", 0);
+		hitterStats.put("triples", 0);
+		hitterStats.put("homeruns", 0);
+		hitterStats.put("rbi", 0);
+		hitterStats.put("walks", 0);
+		hitterStats.put("stolenBases", 0);
+		hitterStats.put("caughtStealing", 0);
 	}
 
 	public Hitter(int plateAppearances, int atBats, int runs, int hits, int singles, int doubles, 
-				  int triples, int homeRuns, int rbi, int walks, int sb, int cs) {
-		hitterStats.put("Plate Appearances", plateAppearances);
-		hitterStats.put("At Bats", atBats);
-		hitterStats.put("Runs", runs);
-		hitterStats.put("Hits", hits);
-		hitterStats.put("Singles", singles);
-		hitterStats.put("Doubles", doubles);
-		hitterStats.put("Triples", triples);
-		hitterStats.put("Home Runs", homeRuns);
-		hitterStats.put("RBI", rbi);
-		hitterStats.put("Walks", walks);
-		hitterStats.put("Stolen Bases", sb);
-		hitterStats.put("Caught Stealing", cs);
+				  int triples, int homeruns, int rbi, int walks, int sb, int cs) {
+		hitterStats.put("plateAppearances", plateAppearances);
+		hitterStats.put("atBats", atBats);
+		hitterStats.put("runs", runs);
+		hitterStats.put("hits", hits);
+		hitterStats.put("singles", singles);
+		hitterStats.put("doubles", doubles);
+		hitterStats.put("triples", triples);
+		hitterStats.put("homeRuns", homeruns);
+		hitterStats.put("rbi", rbi);
+		hitterStats.put("walks", walks);
+		hitterStats.put("stolenBases", sb);
+		hitterStats.put("caughtStealing", cs);
 	}
 
 	public void setPlateAppearances(int plateAppearances) {
-		hitterStats.put("Plate Appearances", plateAppearances);
+		hitterStats.put("plateAppearances", plateAppearances);
 	}
 
 	public void setAtBats(int atBats) {
-		hitterStats.put("At Bats", atBats);
+		hitterStats.put("atBats", atBats);
 	}
 	
-	public void setRuns(int runs) {
-		hitterStats.put("Runs", runs);
+	public void setruns(int runs) {
+		hitterStats.put("runs", runs);
 	}
 
-	public void setHits(int hits) {
-		hitterStats.put("Hits", hits);
+	public void sethits(int hits) {
+		hitterStats.put("hits", hits);
 	}
 
-	public void setSingles(int singles) {
-		hitterStats.put("Singles", singles);
+	public void setsingles(int singles) {
+		hitterStats.put("singles", singles);
 	}
 
-	public void setDoubles(int doubles) {
-		hitterStats.put("Doubles", doubles);
+	public void setdoubles(int doubles) {
+		hitterStats.put("doubles", doubles);
 	}
 
-	public void setTriples(int triples) {
-		hitterStats.put("Triples", triples);
+	public void settriples(int triples) {
+		hitterStats.put("triples", triples);
 	}
 
-	public void setHomeRuns(int homeRuns) {
-		hitterStats.put("Home Runs", homeRuns);
+	public void setHomeruns(int homeruns) {
+		hitterStats.put("homeRuns", homeruns);
 	}
 	
-	public void setRBI(int rbi) {
-		hitterStats.put("RBI", rbi);
+	public void setrbi(int rbi) {
+		hitterStats.put("rbi", rbi);
 	}
 
-	public void setWalks(int walks) {
-		hitterStats.put("Walks", walks);
+	public void setwalks(int walks) {
+		hitterStats.put("walks", walks);
 	}
 	
 	public void setStolenBases(int sb) {
-		hitterStats.put("Stolen Bases", sb);
+		hitterStats.put("stolenBases", sb);
 	}
 	
 	public void setCaughtStealing(int cs) {
-		hitterStats.put("Caught Stealing", cs);
+		hitterStats.put("caughtStealing", cs);
 	}
 	
 	public int getPlateAppearances() {
-		return hitterStats.get("Plate Appearances");
+		return hitterStats.get("plateAppearances");
 	}
 
 	public int getAtBats() {
-		return hitterStats.get("At Bats");
+		return hitterStats.get("atBats");
 	}
 	
-	public int getRuns() {
-		return hitterStats.get("Runs");
+	public int getruns() {
+		return hitterStats.get("runs");
 	}
 
-	public int getHits() {
-		return hitterStats.get("Hits");
+	public int gethits() {
+		return hitterStats.get("hits");
 	}
 
-	public int getSingles() {
-		return hitterStats.get("Singles");
+	public int getsingles() {
+		return hitterStats.get("singles");
 	}
 
-	public int getDoubles() {
-		return hitterStats.get("Doubles");
+	public int getdoubles() {
+		return hitterStats.get("doubles");
 	}
 
-	public int getTriples() {
-		return hitterStats.get("Triples");
+	public int gettriples() {
+		return hitterStats.get("triples");
 	}
 
-	public int getHomeRuns() {
-		return hitterStats.get("Home Runs");
+	public int getHomeruns() {
+		return hitterStats.get("homeRuns");
 	}
 	
-	public int getRBI() {
-		return hitterStats.get("RBI");
+	public int getrbi() {
+		return hitterStats.get("rbi");
 	}
 
-	public int getWalks() {
-		return hitterStats.get("Walks");
+	public int getwalks() {
+		return hitterStats.get("walks");
 	}
 	
 	public int getStolenBases() {
-		return hitterStats.get("Stolen Bases");
+		return hitterStats.get("stolenBases");
 	}
 	
 	public int getCaughtStealing() {
-		return hitterStats.get("Caught Stealing");
+		return hitterStats.get("caughtStealing");
 	}
 
 	public float calculateBattingAverage() {
-		int hits = hitterStats.get("Hits");
-		int atBats = hitterStats.get("At Bats");
+		int hits = hitterStats.get("hits");
+		int atBats = hitterStats.get("atBats");
 		
 		return (float)hits / atBats;
 	}
 	
 	public float calculateOnBasePercent() {
-		int hits = hitterStats.get("Hits");
-		int walks = hitterStats.get("Walks");
-		int plateAppearances = hitterStats.get("Plate Appearances");
+		int hits = hitterStats.get("hits");
+		int walks = hitterStats.get("walks");
+		int plateAppearances = hitterStats.get("plateAppearances");
 		
 		return (float)(hits + walks) / plateAppearances;
 	}
 	
 	public float calculateSluggingPercent() {
-		int singles = hitterStats.get("Singles");
-		int doubles = hitterStats.get("Doubles");
-		int triples = hitterStats.get("Triples");
-		int homeRuns = hitterStats.get("Home Runs");
-		int atBats = hitterStats.get("At Bats");
+		int singles = hitterStats.get("singles");
+		int doubles = hitterStats.get("doubles");
+		int triples = hitterStats.get("triples");
+		int homeruns = hitterStats.get("homeRuns");
+		int atBats = hitterStats.get("atBats");
 		
-		return (float)(singles + (doubles * 2) + (triples * 3) + (homeRuns * 4)) / atBats;
+		return (float)(singles + (doubles * 2) + (triples * 3) + (homeruns * 4)) / atBats;
 	}
 	
 	public float calculateOPS() {
@@ -171,8 +171,8 @@ public class Hitter {
 	}
 	
 	public float calculateStolenBasePercent() {
-		int sb = hitterStats.get("Stolen Bases");
-		int cs = hitterStats.get("Caught Stealing");
+		int sb = hitterStats.get("stolenBases");
+		int cs = hitterStats.get("caughtStealing");
 		return (float)sb / (sb + cs);
 	}
 }
