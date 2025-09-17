@@ -4,51 +4,51 @@ import java.text.DecimalFormat;
 
 public class Hitter {
 
-    private int plateAppearances;
-    private int atBats;
-    private int runs;
-    private int hits;
+    private int pa;
+    private int ab;
+    private int r;
+    private int h;
     private int singles;
     private int doubles;
     private int triples;
-    private int homeruns;
+    private int hr;
     private int rbi;
-    private int walks;
-    private int stolenBases;
-    private int caughtStealing;
+    private int bb;
+    private int sb;
+    private int cs;
 
     public Hitter() {
         this(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
     }
 
-    public Hitter(int plateAppearances, int atBats, int runs, int hits,
-                  int singles, int doubles, int triples, int homeruns,
-                  int rbi, int walks, int stolenBases, int caughtStealing) {
-        this.plateAppearances = plateAppearances;
-        this.atBats = atBats;
-        this.runs = runs;
-        this.hits = hits;
+    public Hitter(int pa, int ab, int r, int h,
+                  int singles, int doubles, int triples, int hr,
+                  int rbi, int bb, int sb, int cs) {
+        this.pa = pa;
+        this.ab = ab;
+        this.r = r;
+        this.h = h;
         this.singles = singles;
         this.doubles = doubles;
         this.triples = triples;
-        this.homeruns = homeruns;
+        this.hr = hr;
         this.rbi = rbi;
-        this.walks = walks;
-        this.stolenBases = stolenBases;
-        this.caughtStealing = caughtStealing;
+        this.bb = bb;
+        this.sb = sb;
+        this.cs = cs;
     }
     
-    public int getPlateAppearances() { return plateAppearances; }
-    public void setPlateAppearances(int plateAppearances) { this.plateAppearances = plateAppearances; }
+    public int getPlateAppearances() { return pa; }
+    public void setPlateAppearances(int pa) { this.pa = pa; }
 
-    public int getAtBats() { return atBats; }
-    public void setAtBats(int atBats) { this.atBats = atBats; }
+    public int getAtBats() { return ab; }
+    public void setAtBats(int ab) { this.ab = ab; }
 
-    public int getRuns() { return runs; }
-    public void setRuns(int runs) { this.runs = runs; }
+    public int getRuns() { return r; }
+    public void setRuns(int r) { this.r = r; }
 
-    public int getHits() { return hits; }
-    public void setHits(int hits) { this.hits = hits; }
+    public int getHits() { return h; }
+    public void setHits(int h) { this.h = h; }
 
     public int getSingles() { return singles; }
     public void setSingles(int singles) { this.singles = singles; }
@@ -59,32 +59,32 @@ public class Hitter {
     public int getTriples() { return triples; }
     public void setTriples(int triples) { this.triples = triples; }
 
-    public int getHomeruns() { return homeruns; }
-    public void setHomeruns(int homeruns) { this.homeruns = homeruns; }
+    public int getHomeRuns() { return hr; }
+    public void setHomeRuns(int hr) { this.hr = hr; }
 
     public int getRbi() { return rbi; }
     public void setRbi(int rbi) { this.rbi = rbi; }
 
-    public int getWalks() { return walks; }
-    public void setWalks(int walks) { this.walks = walks; }
+    public int getWalks() { return bb; }
+    public void setWalks(int bb) { this.bb = bb; }
 
-    public int getStolenBases() { return stolenBases; }
-    public void setStolenBases(int stolenBases) { this.stolenBases = stolenBases; }
+    public int getStolenBases() { return sb; }
+    public void setStolenBases(int sb) { this.sb = sb; }
 
-    public int getCaughtStealing() { return caughtStealing; }
-    public void setCaughtStealing(int caughtStealing) { this.caughtStealing = caughtStealing; }
+    public int getCaughtStealing() { return cs; }
+    public void setCaughtStealing(int cs) { this.cs = cs; }
 
     public float calculateBattingAverage() {
-        return (atBats > 0) ? (float) hits / atBats : 0.0f;
+        return (ab > 0) ? (float) h / ab : 0.0f;
     }
 
     public float calculateOnBasePercent() {
-        return (plateAppearances > 0) ? (float) (hits + walks) / plateAppearances : 0.0f;
+        return (pa > 0) ? (float) (h + bb) / pa : 0.0f;
     }
 
     public float calculateSluggingPercent() {
-        return (atBats > 0) ?
-            (float) (singles + (doubles * 2) + (triples * 3) + (homeruns * 4)) / atBats
+        return (ab > 0) ?
+            (float) (singles + (doubles * 2) + (triples * 3) + (hr * 4)) / ab
             : 0.0f;
     }
 
@@ -101,7 +101,7 @@ public class Hitter {
     }
 
     public float calculateStolenBasePercent() {
-        int attempts = stolenBases + caughtStealing;
-        return (attempts > 0) ? (float) stolenBases / attempts : 0.0f;
+        int attempts = sb + cs;
+        return (attempts > 0) ? (float) sb / attempts : 0.0f;
     }
 }
