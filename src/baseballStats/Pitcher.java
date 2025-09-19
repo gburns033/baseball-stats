@@ -53,8 +53,26 @@ public class Pitcher {
     public int getWalks() { return bb; }
     public void setWalks(int bb) { this.bb = bb; }
 
-    public int getSo() { return so; }
-    public void setSo(int so) { this.so = so; }
     public int getStrikeouts() { return so; }
     public void setStrikeouts(int so) { this.so = so; }
+    
+    public float calculateERA() {
+    	return 9 * (er / convertIP(ip));
+    }
+    
+    public void printStats() {
+    	System.out.println(calculateERA());
+    }
+    
+    private float convertIP(float ip) {
+    	float realIP = ip % 1;
+    	
+    	if (realIP == 0.1) {
+    		return (float) ((ip - 0.1) + .333);
+    	} else if (realIP == 0.2) {
+    		return (float) ((ip - 0.2) + .667);
+    	} 
+    	
+    	return ip;
+    }
 }
