@@ -13,78 +13,152 @@ public class App {
 		//DecimalFormat df = new DecimalFormat("#.000");
 		Scanner scanner = new Scanner(System.in);
 		
-		Hitter hitter = null;
-		int plateAppearances;
-		int atBats;
-		int runs;
-		int hits;
-		int doubles;
-		int triples;
-		int homeRuns;
-		int rbi;
-		int walks;
-		int sb;
-		int cs;
-
-		while (hitter == null) {
-			int choice;
-
-			System.out.println(
-					"Pick an option: \n"
-					+ "1. Load hitter\n"
-					+ "2. Save a new hitter");
-			
-			choice = scanner.nextInt();
-
-			switch (choice) {
-			case 1:
-				hitter = loadHitterData(gson);
-				break;
-			case 2:
-				System.out.println("Enter plate appearances: ");
-				plateAppearances = scanner.nextInt();
-
-				System.out.println("Enter at-bats: ");
-				atBats = scanner.nextInt();
-
-				System.out.println("Enter runs: ");
-				runs = scanner.nextInt();
-
-				System.out.println("Enter hits: ");
-				hits = scanner.nextInt();
-
-				System.out.println("Enter doubles: ");
-				doubles = scanner.nextInt();
-
-				System.out.println("Enter triples: ");
-				triples = scanner.nextInt();
-
-				System.out.println("Enter home runs: ");
-				homeRuns = scanner.nextInt();
-
-				System.out.println("Enter RBIs: ");
-				rbi = scanner.nextInt();
-
-				System.out.println("Enter walks: ");
-				walks = scanner.nextInt();
-
-				System.out.println("Enter stolen bases: ");
-				sb = scanner.nextInt();
-
-				System.out.println("Enter caught stealing: ");
-				cs = scanner.nextInt();
-
-				hitter = new Hitter(plateAppearances, atBats, runs, hits, hits - (doubles + triples), doubles, triples,
-						homeRuns, rbi, walks, sb, cs);
-				break;
-			default:
-			}
-		}
 		
-		hitter.printSlashLine();
-		saveHitterData(hitter, gson);
 
-		scanner.close();
+	    System.out.println(
+	    		"Pick an option: \n"
+	    		+ "1. Hitter\n"
+	    		+ "2. Pitcher");
+	    int choice1 = scanner.nextInt();
+	    
+	    if (choice1 == 1) {
+	    	Hitter hitter = null;
+			int plateAppearances;
+			int atBats;
+			int runs;
+			int hits;
+			int doubles;
+			int triples;
+			int homeRuns;
+			int rbi;
+			int walks;
+			int sb;
+			int cs;
+			
+			while (hitter == null) {
+				int choice2;
+
+				System.out.println(
+						"Pick an option: \n"
+						+ "1. Load hitter\n"
+						+ "2. Save a new hitter");
+				
+				choice2 = scanner.nextInt();
+
+				switch (choice2) {
+				case 1:
+					hitter = loadHitterData(gson);
+					break;
+				case 2:
+					System.out.println("Enter plate appearances: ");
+					plateAppearances = scanner.nextInt();
+
+					System.out.println("Enter at-bats: ");
+					atBats = scanner.nextInt();
+
+					System.out.println("Enter runs: ");
+					runs = scanner.nextInt();
+
+					System.out.println("Enter hits: ");
+					hits = scanner.nextInt();
+
+					System.out.println("Enter doubles: ");
+					doubles = scanner.nextInt();
+
+					System.out.println("Enter triples: ");
+					triples = scanner.nextInt();
+
+					System.out.println("Enter home runs: ");
+					homeRuns = scanner.nextInt();
+
+					System.out.println("Enter RBIs: ");
+					rbi = scanner.nextInt();
+
+					System.out.println("Enter walks: ");
+					walks = scanner.nextInt();
+
+					System.out.println("Enter stolen bases: ");
+					sb = scanner.nextInt();
+
+					System.out.println("Enter caught stealing: ");
+					cs = scanner.nextInt();
+
+					hitter = new Hitter(plateAppearances, atBats, runs, hits, hits - (doubles + triples), doubles, triples,
+							homeRuns, rbi, walks, sb, cs);
+					break;
+				default:
+				}
+			}
+			
+			hitter.printSlashLine();
+			saveHitterData(hitter, gson);
+
+			scanner.close();
+	    } else if (choice1 == 2) {
+	    	Pitcher pitcher = null;
+			float ip;
+			int g;
+		    int gs;
+		    int h;
+		    int r;
+		    int er;
+		    int hr;
+		    int bb;
+		    int so;
+		    
+		    while (pitcher == null) {
+		    	int choice2;
+
+				System.out.println(
+						"Pick an option: \n"
+						+ "1. Load pitcher\n"
+						+ "2. Save a new pitcher");
+				
+				choice2 = scanner.nextInt();
+
+				switch (choice2) {
+				case 1:
+					pitcher = loadPitcherData(gson);
+					break;
+				case 2:
+					System.out.println("Enter innings pitched: ");
+					ip = scanner.nextFloat();
+
+					System.out.println("Enter games: ");
+					g = scanner.nextInt();
+
+					System.out.println("Enter games started: ");
+					gs = scanner.nextInt();
+
+					System.out.println("Enter hits: ");
+					h = scanner.nextInt();
+
+					System.out.println("Enter runs: ");
+					r = scanner.nextInt();
+
+					System.out.println("Enter earned runs: ");
+					er = scanner.nextInt();
+
+					System.out.println("Enter home runs: ");
+					hr = scanner.nextInt();
+
+					System.out.println("Enter walks: ");
+					bb = scanner.nextInt();
+
+					System.out.println("Enter strikeouts: ");
+					so = scanner.nextInt();
+
+					pitcher = new Pitcher(ip, g, gs, h, r, er, hr, bb, so);
+					break;
+				default:
+				}
+		    }
+		    
+		    pitcher.printStats();
+			savePitcherData(pitcher, gson);
+
+			scanner.close();
+	    }
 	}
 
 	private static Hitter loadHitterData(Gson gson) {
@@ -101,6 +175,25 @@ public class App {
 	private static void saveHitterData(Hitter h, Gson gson) {
 		try (FileWriter w = new FileWriter("hitter.json")) {
 			gson.toJson(h, w);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private static Pitcher loadPitcherData(Gson gson) {
+		try (FileReader r = new FileReader("pitcher.json")) {
+			Pitcher p = gson.fromJson(r, Pitcher.class);
+			return p;
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		return new Pitcher();
+	}
+	
+	private static void savePitcherData(Pitcher p, Gson gson) {
+		try (FileWriter w = new FileWriter("pitcher.json")) {
+			gson.toJson(p, w);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
