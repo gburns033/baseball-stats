@@ -29,30 +29,32 @@ public class Pitcher {
         this.so = so;
     }
     
-    public float getIp() { return ip; }
-    public void setIp(float ip) { this.ip = ip; }
+    public float getInningsPitched() { return ip; }
+    public void setInningsPitched(float ip) { this.ip = ip; }
 
-    public int getG() { return g; }
-    public void setG(int g) { this.g = g; }
+    public int getGames() { return g; }
+    public void setGames(int g) { this.g = g; }
 
-    public int getGs() { return gs; }
-    public void setGs(int gs) { this.gs = gs; }
+    public int getGamesStarted() { return gs; }
+    public void setGamesStarted(int gs) { this.gs = gs; }
 
-    public int getH() { return h; }
-    public void setH(int h) { this.h = h; }
+    public int getHits() { return h; }
+    public void setHits(int h) { this.h = h; }
 
-    public int getR() { return r; }
-    public void setR(int r) { this.r = r; }
+    public int getRuns() { return r; }
+    public void setRuns(int r) { this.r = r; }
 
-    public int getEr() { return er; }
-    public void setEr(int er) { this.er = er; }
+    public int getEarnedRuns() { return er; }
+    public void setEarnedRuns(int er) { this.er = er; }
 
-    public int getHr() { return hr; }
-    public void setHr(int hr) { this.hr = hr; }
+    public int getHomeRuns() { return hr; }
+    public void setHomeRuns(int hr) { this.hr = hr; }
 
-    public int getBb() { return bb; }
-    public void setBb(int bb) { this.bb = bb; }
+    public int getWalks() { return bb; }
+    public void setWalks(int bb) { this.bb = bb; }
 
     public int getSo() { return so; }
     public void setSo(int so) { this.so = so; }
+    public int getStrikeouts() { return so; }
+    public void setStrikeouts(int so) { this.so = so; }
 }
