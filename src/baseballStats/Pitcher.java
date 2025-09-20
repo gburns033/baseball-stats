@@ -56,12 +56,29 @@ public class Pitcher {
     public int getStrikeouts() { return so; }
     public void setStrikeouts(int so) { this.so = so; }
     
-    public float calculateERA() {
-    	return 9 * (er / convertIP(ip));
-    }
+    public float calculateERA() { return 9 * (er / convertIP(ip)); }
+    
+    public float calculateWHIP() { return (bb + h) / convertIP(ip); }
+    
+    public float calculateH9() { return (h / convertIP(ip)) * 9; }
+    
+    public float calculateHR9() { return (hr / convertIP(ip)) * 9; }
+    
+    public float calculateBB9() { return (bb / convertIP(ip)) * 9; }
+    
+    public float calculateSO9() { return (so / convertIP(ip)) * 9; }
     
     public void printStats() {
-    	System.out.println(calculateERA());
+    	System.out.printf(
+    		    "Innings Pitched: %.1f\nERA: %.2f\nWHIP: %.3f\nH/9: %.1f\nHR/9: %.1f\nBB/9: %.1f\nSO/9: %.1f\n",
+    		    ip,
+    		    calculateERA(),
+    		    calculateWHIP(),
+    		    calculateH9(),
+    		    calculateHR9(),
+    		    calculateBB9(),
+    		    calculateSO9()
+    		);
     }
     
     private float convertIP(float ip) {
