@@ -1,9 +1,5 @@
 package baseballStats;
 
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.text.DecimalFormat;
 import com.google.gson.Gson;
 import java.util.Scanner;
 
@@ -12,8 +8,6 @@ public class App {
 		Gson gson = new Gson();
 		//DecimalFormat df = new DecimalFormat("#.000");
 		Scanner scanner = new Scanner(System.in);
-		
-		
 
 	    System.out.println(
 	    		"Pick an option: \n"
@@ -47,7 +41,7 @@ public class App {
 
 				switch (choice2) {
 				case 1:
-					hitter = loadHitterData(gson);
+					hitter = DataLoader.loadHitterData(gson);
 					break;
 				case 2:
 					System.out.println("Enter plate appearances: ");
@@ -91,7 +85,7 @@ public class App {
 			}
 			
 			hitter.printSlashLine();
-			saveHitterData(hitter, gson);
+			DataLoader.saveHitterData(hitter, gson);
 
 			scanner.close();
 	    } else if (choice1 == 2) {
@@ -118,7 +112,7 @@ public class App {
 
 				switch (choice2) {
 				case 1:
-					pitcher = loadPitcherData(gson);
+					pitcher = DataLoader.loadPitcherData(gson);
 					break;
 				case 2:
 					System.out.println("Enter innings pitched: ");
@@ -155,47 +149,9 @@ public class App {
 		    }
 		    
 		    pitcher.printStats();
-			savePitcherData(pitcher, gson);
+			DataLoader.savePitcherData(pitcher, gson);
 
 			scanner.close();
 	    }
-	}
-
-	private static Hitter loadHitterData(Gson gson) {
-		try (FileReader r = new FileReader("hitter.json")) {
-			Hitter h = gson.fromJson(r, Hitter.class);
-			return h;
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
-		return new Hitter();
-	}
-
-	private static void saveHitterData(Hitter h, Gson gson) {
-		try (FileWriter w = new FileWriter("hitter.json")) {
-			gson.toJson(h, w);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-	
-	private static Pitcher loadPitcherData(Gson gson) {
-		try (FileReader r = new FileReader("pitcher.json")) {
-			Pitcher p = gson.fromJson(r, Pitcher.class);
-			return p;
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
-		return new Pitcher();
-	}
-	
-	private static void savePitcherData(Pitcher p, Gson gson) {
-		try (FileWriter w = new FileWriter("pitcher.json")) {
-			gson.toJson(p, w);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
 	}
 }
