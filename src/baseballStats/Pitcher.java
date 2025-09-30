@@ -1,8 +1,12 @@
 package baseballStats;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+
 public class Pitcher {
 
     private float ip;
+    private int outs;
     private int g;
     private int gs;
     private int h;
@@ -19,6 +23,7 @@ public class Pitcher {
     public Pitcher(float ip, int g, int gs, int h, int r, int er,
                    int hr, int bb, int so) {
         this.ip = ip;
+        this.outs = convertIPtoOuts(this.ip);
         this.g = g;
         this.gs = gs;
         this.h = h;
@@ -30,7 +35,12 @@ public class Pitcher {
     }
     
     public float getInningsPitched() { return ip; }
-    public void setInningsPitched(float ip) { this.ip = ip; }
+    public void setInningsPitched(float ip) { 
+    	this.ip = ip; 
+    	this.outs = convertIPtoOuts(this.ip);
+    }
+    
+    public int getOuts() { return outs; }
 
     public int getGames() { return g; }
     public void setGames(int g) { this.g = g; }
@@ -56,17 +66,17 @@ public class Pitcher {
     public int getStrikeouts() { return so; }
     public void setStrikeouts(int so) { this.so = so; }
     
-    public float calculateERA() { return 9 * (er / convertIP(ip)); }
+    public float calculateERA() { return 9 * (er / (outs / 3.0f)); }
     
-    public float calculateWHIP() { return (bb + h) / convertIP(ip); }
+    public float calculateWHIP() { return (bb + h) / (outs / 3.0f); }
     
-    public float calculateH9() { return (h / convertIP(ip)) * 9; }
+    public float calculateH9() { return (h / (outs / 3.0f)) * 9; }
     
-    public float calculateHR9() { return (hr / convertIP(ip)) * 9; }
+    public float calculateHR9() { return (hr / (outs / 3.0f)) * 9; }
     
-    public float calculateBB9() { return (bb / convertIP(ip)) * 9; }
+    public float calculateBB9() { return (bb / (outs / 3.0f)) * 9; }
     
-    public float calculateSO9() { return (so / convertIP(ip)) * 9; }
+    public float calculateSO9() { return (so / (outs / 3.0f)) * 9; }
     
     public void printStats() {
     	System.out.printf(
@@ -81,15 +91,16 @@ public class Pitcher {
     		);
     }
     
-    private float convertIP(float ip) {
-    	float realIP = ip % 1;
+    private int convertIPtoOuts(float ip) {
+    	float partialIP = (float) (Math.round((ip % 1) * 10d) / 10d);
+    	int outs = Math.round(ip) * 3;
     	
-    	if (realIP == 0.1) {
-    		return (float) ((ip - 0.1) + .333);
-    	} else if (realIP == 0.2) {
-    		return (float) ((ip - 0.2) + .667);
+    	if (partialIP == 0.1f) {
+    		outs++;
+    	} else if (partialIP == 0.2f) {
+    		outs += 2;
     	} 
     	
-    	return ip;
+    	return outs;
     }
 }
