@@ -39,7 +39,7 @@ public class App {
 
 					switch (choice2) {
 					case 1:
-						hitter = DataLoader.loadHitterData(gson);
+						hitters = DataLoader.loadHitterData(gson);
 						break;
 					case 2:
 						System.out.println("Enter plate appearances: ");
@@ -85,7 +85,7 @@ public class App {
 				}
 
 				hitter.printSlashLine();
-				DataLoader.saveHitterData(hitter, gson);
+				DataLoader.saveHitterData(hitters, gson);
 			} else if (choice1 == 2) {
 				Pitcher pitcher = null;
 				float ip;
@@ -107,7 +107,7 @@ public class App {
 
 					switch (choice2) {
 					case 1:
-						pitcher = DataLoader.loadPitcherData(gson);
+						pitchers = DataLoader.loadPitcherData(gson);
 						break;
 					case 2:
 						System.out.println("Enter innings pitched: ");
@@ -145,7 +145,7 @@ public class App {
 				}
 
 				pitcher.printStats();
-				DataLoader.savePitcherData(pitcher, gson);
+				DataLoader.savePitcherData(pitchers, gson);
 			} else if (choice1 == 3) {
 				scanner.close();
 				running = false;
