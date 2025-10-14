@@ -9,6 +9,7 @@ public class App {
 		// DecimalFormat df = new DecimalFormat("#.000");
 		Scanner scanner = new Scanner(System.in);
 		HitterArray hitters = new HitterArray();
+		PitcherArray pitchers = new PitcherArray();
 		boolean running = true;
 
 		while (running) {
@@ -137,6 +138,7 @@ public class App {
 						so = scanner.nextInt();
 
 						pitcher = new Pitcher(ip, g, gs, h, r, er, hr, bb, so);
+						pitchers.addPitcher(pitcher);
 						break;
 					default:
 					}
@@ -151,5 +153,6 @@ public class App {
 		}
 		
 		hitters.printHitters();
+		pitchers.printPitchers();
 	}
 }
