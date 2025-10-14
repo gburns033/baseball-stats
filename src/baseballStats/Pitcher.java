@@ -1,8 +1,5 @@
 package baseballStats;
 
-import java.math.RoundingMode;
-import java.text.DecimalFormat;
-
 public class Pitcher {
 
     private float ip;
